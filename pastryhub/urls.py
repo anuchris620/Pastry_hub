@@ -20,4 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path( 'test/',views.ind),
     path('',views.index),
+    path('login/',views.log),
+    path('register/',views.reg),
+    path('login/logsub',views.logsub),
+    
 ]
