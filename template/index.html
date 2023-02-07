@@ -37,7 +37,7 @@
 				<div class="wrap flex-container padding-small">
 				<div class="contact-block">
 					{% if user.is_authenticated %}  <!--check in django if the user is loged in-->
-					<span class="pr-50"><h6 style="color: rgb(151, 140, 151);">Hi,&nbsp;&nbsp;{{user.username}}</h6></span>
+					<span class="pr-50"><h6 style="color: rgb(151, 140, 151);">Hi,&nbsp;&nbsp;{{user.username}}</h6></span>  <!--&nbsp is space-->
 					{% endif %}
 					<span class="color-secondary"><i class="icon icon-envelope-o"></i><a href="#"> bakery@gmail.com</a></span>
 				</div>
