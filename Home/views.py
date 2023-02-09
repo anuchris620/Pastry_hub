@@ -18,13 +18,13 @@ def logsub(request):
     user=auth.authenticate(username=uname,password=pname) #username password in the table 
     if user is not None:
         auth.login(request,user)        #permission giving process
-        msg="login successfully"
+       
         return redirect("/")
     else:
-        msg="invalid username and password"
-    
-        return render(request,'test.html',{'s':msg})         #here request has url    
-    
+        message="*invalid username and password"
+
+        return render(request,"login.html",{'msg':message})        #here request has url    
+
 def regsub(request):
     uname=request.POST['uname']
     fname=request.POST['fname']
@@ -44,6 +44,6 @@ def regsub(request):
             msg="Registration successfull"
             return redirect("/")
     else:
-        msg="password not same"
+        msg="*password not same"
 
-    return render(request,'test.html',{'r':msg})
+    return render(request,"register.html",{"msge":msg})
