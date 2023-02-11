@@ -13,7 +13,7 @@
 </head>
 <body background="{% static 'images\pexels-silvia-trigo-1857157.jpg' %}">
     <center><div class="log">
-        <form action="{% url 'regpage' %}" method="post">                               <!--to get the details in url-->
+        <form action="{% url 'regipage' %}" method="post">                               <!--to get the details in url-->
         {% csrf_token %}
         <h1>Register</h1>
         <input type="text" name="uname" placeholder="User name" required><br>
