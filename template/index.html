@@ -312,17 +312,18 @@
 				<h2 class="section-title text-center mb-4">Best Product</h2>
 				<div class="row">
 					
+						{% for i in data %}
 
 						<div class="product-item col-md-3 pl-0">
 							<a href="single-product.html" class="product-image"><img
-									src="{% static 'images/cake-item1.jpg' %}"></a>
+									src={{i.Img.url}}></a>
 							<div class="text-comtent text-center text-hover">
-								<h5 class="pt-4"><a href="single-product.html">Black Forest Pastry</a></h5>
+								<h5 class="pt-4"><a href="single-product.html">{{i.Name}}</a></h5>
 								<p>Cake - Pastries</p>
-								<span class="price colored">$12</span>
+								<span class="price colored">₹{{i.Price}}</span>
 							</div>
 						</div>
-						
+						{% endfor %}
 
 
 

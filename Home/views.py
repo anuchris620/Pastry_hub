@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import auth,User
-
+from product.models import CakePr
 # Create your views here.
 def ind(request):
     return render(request,'test.html')
 def index(request):
-    return render(request,'index.html')
+    #data=CakePr.objects.get(id=2)  #o-r-m for database(select * from table where id=2);  get is used to call a specific product
+    data=CakePr.objects.all()          #all is used to select all the product.
+    return render(request,'index.html',{'data':data})
+
 def log(request):
     if request.method=="POST":
         uname=request.POST['uname']
