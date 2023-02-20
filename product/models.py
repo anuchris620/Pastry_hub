@@ -9,4 +9,9 @@ class CakePr(models.Model):  #inheritance
     Discpt=models.TextField()
     Date=models.DateTimeField(auto_now_add=True)     #take the correct date. 
     
+class CommentBox(models.Model):
+    pro=models.ForeignKey(CakePr,related_name='Comments',on_delete=models.CASCADE)
+    User=models.CharField(max_length=200)
+    Comment=models.TextField()
+    Date=models.DateTimeField(auto_now_add=True)
 

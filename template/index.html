@@ -1,10 +1,10 @@
 {% load static %}
-
+image
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Bakery</title>
+	<title>Pastry_Hub</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -309,17 +309,17 @@
 
 		<section class="best-products margin-large">
 			<div class="container">
-				<h2 class="section-title text-center mb-4">Best Product</h2>
+				<h2 class="section-title text-center mb-4">Cakes and Pastries</h2>
 				<div class="row">
 					
 						{% for i in data %}
 
 						<div class="product-item col-md-3 pl-0">
-							<a href="single-product.html" class="product-image"><img
+							<a href="{% url 'details' %}?id={{i.id}}" class="product-image"><img
 									src={{i.Img.url}}></a>
 							<div class="text-comtent text-center text-hover">
 								<h5 class="pt-4"><a href="single-product.html">{{i.Name}}</a></h5>
-								<p>Cake - Pastries</p>
+								<p>Cakes</p>
 								<span class="price colored">₹{{i.Price}}</span>
 							</div>
 						</div>
