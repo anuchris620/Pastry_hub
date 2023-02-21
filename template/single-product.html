@@ -98,7 +98,7 @@
 
 						<div class="navbar-collapse collapse" id="slide-navbar-collapse">
 							<ul class="navbar-nav list-inline text-uppercase">
-								<li class="nav-item text-hover"><a href="index.html" class="nav-link"
+								<li class="nav-item text-hover"><a href="{% url 'home' %}" class="nav-link"
 										data-effect="Home">Home</a></li>
 								<li class="nav-item text-hover"><a href="about.html" class="nav-link"
 										data-effect="About Us">About us</a></li>
@@ -201,31 +201,16 @@
 
 				<div><h2>comments</h2> 
 					<div class="comment-box">
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-						<p>
-							Ramesh  <br><b>good product</b> &nbsp;<small>27/02/2022 monday </small>
-						</p>
-
+						{% if prodetails.Comments.all %}
+							{% for pdetails in prodetails.Comments.all %}
+							<p>
+								<br>{{pdetails.User}}<b></b> &nbsp;<small>{{pdetails.Date}}</small><br>
+									{{pdetails.Comment}}
+							</p>
+							{% endfor %}
+						{% else %}
+							<h2>no comments...</h2>
+						{% endif %}
 					</div>
 					<h3>Enter your comment here</h3>
 					{% if user.is_authenticated %}
@@ -237,7 +222,7 @@
 						<button type="submit">submit</button>
 					</div>
 					</form>
-					{% endif%}
+					{% endif %}
 				</div>
 
 
