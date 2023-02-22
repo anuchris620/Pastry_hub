@@ -7,8 +7,13 @@ def ind(request):
 def index(request):
     #data=CakePr.objects.get(id=2)  #o-r-m for database(select * from table where id=2);  get is used to call a specific product
     data=CakePr.objects.all()          #all is used to select all the product.
-    return render(request,'index.html',{'data':data})
+    if "usernam" in request.COOKIES:
 
+        x=request.COOKIES["usernam"]
+    else:
+        x=""
+    return render(request,'index.html',{'data':data,'abc':x})
+    
 def log(request):
     if request.method=="POST":
         uname=request.POST['uname']
@@ -16,8 +21,9 @@ def log(request):
         user=auth.authenticate(username=uname,password=pname) #username password in the table 
         if user is not None:
             auth.login(request,user)        #permission giving process
-       
-            return redirect("/")
+            respose=redirect("/")
+            respose.set_cookie("usernam",uname)
+            return respose
         else:
             message="*invalid username and password"
 
@@ -54,7 +60,9 @@ def reg(request):
 
 def logt(request):
         auth.logout(request)
-        return redirect('/')
+        response=redirect('/')
+        response.delete_cookie("usernam")
+        return response
         #return render(request,'test.html')
 
 

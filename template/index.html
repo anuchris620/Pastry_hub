@@ -1,5 +1,4 @@
 {% load static %}
-image
 <!DOCTYPE html>
 <html>
 
@@ -79,7 +78,7 @@ image
 
 							<div class="navbar-collapse collapse" id="slide-navbar-collapse">
 								<ul class="navbar-nav list-inline text-uppercase">
-									<li class="nav-item text-hover active"><a href="index.html" class="nav-link"
+									<li class="nav-item text-hover active"><a href="{% url 'home' %}" class="nav-link"
 											data-effect="Home">Home</a></li>
 									<li class="nav-item text-hover"><a href="about.html" class="nav-link"
 											data-effect="About Us">About us</a></li>
@@ -424,7 +423,8 @@ image
 			<div class="container">
 				<div class="row">
 					<div class="reviews-content col-md-12 light text-center">
-						<h2 class="section-title">Testimonials</h2>
+					
+						<h2 class="section-title">{{abc}}</h2>
 
 						<div class="testimonial-slider">
 							<div class="testimonials-inner">
