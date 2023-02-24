@@ -197,8 +197,12 @@
 						</div>
 					</div>
 
+				</div><br><br>
+				<div>
+					{% for im1 in recent %}
+					<a href="{% url 'details' %}?id={{im1.id}}"><img src="{{im1.Img.url}}" width="131px" height="131px"> &nbsp;&nbsp;</a>
+					{% endfor %}
 				</div>
-
 				<div><h2>comments</h2> 
 					<div class="comment-box">
 						{% if prodetails.Comments.all %}
