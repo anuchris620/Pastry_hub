@@ -27,7 +27,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 </head>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
 <body>
 
 	<div id="main-wrapper" class="overflow-hidden">
@@ -93,7 +95,9 @@
 									<li class="nav-item text-hover"><a href="register/" class="nav-link"
 											data-effect="Contact">Register</a></li>
 									{% endif %}
-
+									<li class="nav-item text-hover"><a href="srh/" class="nav-link"
+											data-effect="Contact">Search</a></li>
+										
 
 
 
@@ -108,7 +112,7 @@
 									</a>
 									<form role="search" method="get" class="search-box" action="">
 										<input class="search-field text search-input" placeholder="Search"
-											type="search">
+											type="search" style="color: black;" id="tags">
 									</form>
 								</div>
 								<div class="shopping-cart">
@@ -143,7 +147,8 @@
 						<p>A gorgeous selection of our favorites for a client to send as a new year’s gift.A gorgeous
 							selection of our favorites for a client to send as a new year’s gift</p>
 						<div class="pix_btn">
-							<a href="#" class="btn-hvr-effects mt-3">Shop Now</a>
+							
+							<button type="submit">Shop now</button>
 						</div>
 					</div><!--content-box-->
 
@@ -162,6 +167,7 @@
 						<p>A gorgeous selection of our favorites for a client to send as a new year’s gift.A gorgeous
 							selection of our favorites for a client to send as a new year’s gift</p>
 						<div class="pix_btn">
+							
 							<a href="#" class="btn-hvr-effects mt-3">Shop Now</a>
 						</div>
 					</div><!--content-box-->

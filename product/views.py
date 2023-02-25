@@ -5,7 +5,13 @@ def pro(request):
     return render(request,'test.html')
 
 def prodetails(request):
-    ids=request.GET['id']
+    if 'id' in request.GET:
+        ids=request.GET['id']
+    elif 'nam' in request.GET:
+        nam=request.GET['nam']
+        namobj=CakePr.objects.get(Name=nam)
+        ids=namobj.id
+
     data=CakePr.objects.get(id=ids) #id is database id compare with ids to take the product
     if "recent_views" in request.session:           #another area in cookies
         if ids in request.session["recent_views"]:

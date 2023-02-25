@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import auth,User
 from product.models import CakePr
+from django.http.response import JsonResponse
 # Create your views here.
 def ind(request):
     return render(request,'test.html')
@@ -64,6 +65,19 @@ def logt(request):
         response.delete_cookie("usernam")
         return response
         #return render(request,'test.html')
+def search(request):
+    return render(request,"search.html")
+def autocom(request):
+    if 'term' in request.GET:
+        val=request.GET['term']
+        names=CakePr.objects.filter(Name__istartswith=val)
+        print ("hi",names)
+        name=[]
+        for i in names:
+            name.append(i.Name)
+
+    return JsonResponse(name,safe=False) #for not loading the or refreshing give back the value as json response.
+
 
 
 

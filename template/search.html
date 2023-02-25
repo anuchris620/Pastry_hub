@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            background-color: rgba(128, 128, 128, 0.488);
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            margin-top: 60px;
+            border-radius: 10px;
+        
+        }
+        .search input{
+            margin: 40px;
+            width: 250px;
+            height: 30px;
+            padding-left: 10px;
+            border-radius: 10px;
+            margin-top: 80px;
+            margin-left: 10px;
+        }
+        .search button{
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            color: aliceblue;
+            background-color: rgb(42, 42, 165);
+            margin-top: 40px;
+            margin-right: 30px;
+            
+        }
+        .search button:active{
+            transform:scale(.80)
+        }
+        h1{
+            margin-top: 150px;
+            font-style: bold;
+            color: rgb(21, 10, 34);
+        }
+    
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    
+    $( "#tags" ).autocomplete({
+      source: "{% url 'auto' %}"
+    });
+  } );
+  </script>
+</head>
+<body bgcolor="#b7d7e8">
+    <center>
+    <h1>Pastry_Hub</h1>
+</center>
+    <center><div class="search">
+    <form action="{% url 'details' %}">
+    <input type="search" id="tags" name="nam">  <!--name is an attribute-->
+    <button type="submit">search</button>
+</form>
+</center>
+</div>
+</body>
+
+</html>
