@@ -9,7 +9,7 @@ def prodetails(request):
         ids=request.GET['id']
     elif 'nam' in request.GET:
         nam=request.GET['nam']
-        namobj=CakePr.objects.get(Name=nam)
+        namobj=CakePr.objects.get(Name=nam) 
         ids=namobj.id
 
     data=CakePr.objects.get(id=ids) #id is database id compare with ids to take the product
