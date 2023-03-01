@@ -75,6 +75,7 @@ def autocom(request):
         name=[]
         for i in names:
             name.append(i.Name)
+            print("hello",name)
 
     return JsonResponse(name,safe=False) #for not loading the or refreshing give back the value as json response.
 

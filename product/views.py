@@ -1,18 +1,28 @@
 from django.shortcuts import render,redirect
 from product.models import CakePr,CommentBox
+from django.core.cache import cache
 # Create your views here.
 def pro(request):
     return render(request,'test.html')
 
 def prodetails(request):
     if 'id' in request.GET:
-        ids=request.GET['id']
+        ids=request.GET['id']        # this id is in sting since we get from url.
     elif 'nam' in request.GET:
         nam=request.GET['nam']
         namobj=CakePr.objects.get(Name=nam) 
-        ids=namobj.id
+        ids=str(namobj.id)          #since the id that we get from database is in integer format.
+    
+    if cache.get(ids):
+        print("DATA FROM CACHE")
+        data=cache.get(ids)  #here ids is the key.
+    else:
 
-    data=CakePr.objects.get(id=ids) #id is database id compare with ids to take the product
+        data=CakePr.objects.get(id=ids)
+        cache.set(ids,data)                  #here ids is dynamic
+        print("DATA FROM DATABASE")
+
+   # data=CakePr.objects.get(id=ids) #id is database id compare with ids to take the product
     if "recent_views" in request.session:           #another area in cookies
         if ids in request.session["recent_views"]:
             request.session["recent_views"].remove(ids)
@@ -37,6 +47,7 @@ def prodetails(request):
 
         #return render(request,'single_post.html',{"prodetails":data})
         return render(request,'single-product.html',{"prodetails":data})
+    
 
 
 def commentarea(request):
@@ -47,4 +58,22 @@ def commentarea(request):
     comment.save();
     return redirect ('/pro/?id='+pro)
 
+
+def prodetails2(request):
+    if 'id' in request.GET:
+        ids=request.GET['id']
+    elif 'nam' in request.GET:
+        nam=request.GET['nam']
+        namobj=CakePr.objects.get(Name=nam) 
+        ids=namobj.id
+    
+    if cache.get(ids):
+        print("DATA FROM CACHE")
+        data=cache.get(ids)  #here ids is the key.
+    else:
+
+        data=CakePr.objects.get(id=ids)
+        cache.set(ids,data)                  #here ids is dynamic
+        print("DATA FROM DATABASE")
+    return render(request,'single-product.html',{"prodetails":data})
     

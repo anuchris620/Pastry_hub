@@ -1,0 +1,35 @@
+.log {
+    background-color: rgba(128, 128, 128, 0.488);
+    width: 400px;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+h3{
+    color: aliceblue;
+    margin-top: 10x;
+}
+.log input {
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    padding-left: 15px;
+    border-radius: 10px;
+}
+.log button{
+    
+    width: 220px;
+    height: 30px;
+    border-radius: 10px;
+    color: aliceblue;
+    background-color: rgba(42, 42, 165, 0.533);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.log button:active{
+    transform:scale(.80)
+}
+.log h1{
+    font-style: italic;
+    color: rgb(240, 255, 255);
+}

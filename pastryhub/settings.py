@@ -124,6 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+STATIC_ROOT=os.path.join(BASE_DIR,'backup')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -135,3 +136,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+#caching creation
+
+CACHE_TTL=60*1500
+CACHE={
+    'default':{
+            'BACKEND':'django_redis.cash.RedisCashe',
+            'LOCATION':'radis://127.0.0.1:6379/1',                         #next project /2
+            'OPTIONS': {
+                   'CLIENT_CLASS':'django_redis.client.DefaultClient'
+            },
+            'KEY_PERFIX':'example',
+
+    }
+}
+
